@@ -25,12 +25,14 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
+        //convert Gson
         val retrofit = Retrofit.Builder()
             .baseUrl("http://liveapps.ddns.net/monitoring/public/api/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         val api = retrofit.create(ApiService::class.java)
 
+        //showdata
         api.getPosts().enqueue(object : Callback<List<User>> {
             override fun onFailure(call: Call<List<User>>, t: Throwable) {
                 d("TAUFIK", "onFailure")
@@ -44,6 +46,7 @@ class MainActivity : AppCompatActivity() {
         })
    }
 
+    //function show data
     private fun showData(users: List<User>) {
         recyclerView.apply {
             layoutManager = LinearLayoutManager(this@MainActivity)
