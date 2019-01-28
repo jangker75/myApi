@@ -1,8 +1,13 @@
 package com.api.taufik.myapi
+import io.reactivex.Observable
+import okhttp3.ResponseBody
 import retrofit2.Call
-import retrofit2.http.GET
+import retrofit2.http.*
 
 interface ApiService {
-    @GET("list_artikel")
-    fun getPosts(): Call<List<User>>
+
+    @POST("db")
+    fun getPosts( ): Call<List<User>>
 }
+//      @GET("/")
+ //   fun getPosts(): Call<List<User>>

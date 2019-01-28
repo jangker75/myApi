@@ -18,8 +18,8 @@ class UsersAdapter(private val users: List<User>) : RecyclerView.Adapter<UsersAd
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val user = users[position]
-        holder.ID.text = user.api_message
-        holder.NAMA.text = user.api_status.toString()
+        holder.ID.text = user.api_status.toString()
+        holder.NAMA.text = user.api_message
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
